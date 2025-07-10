@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@plugin "daisyui";
+@plugin "daisyui" {
+  themes:   primary: "#3B82F6"
+}
