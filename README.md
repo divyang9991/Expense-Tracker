@@ -6,15 +6,13 @@ An intuitive and responsive full-stack **Expense Tracker** that lets users manag
 
 ---
 
-## 📌 Table of Contents
+## Table of Contents
 
 * [Features](#-features)
 * [Tech Stack](#-tech-stack)
-* [Folder Structure](#-folder-structure)
 * [Installation](#-installation)
 * [Usage](#-usage)
 * [Screenshots](#-screenshots)
-* [Demo Video](#-demo-video)
 * [Best Practices Followed](#-best-practices-followed)
 * [Project Highlights](#-project-highlights)
 * [Future Improvements](#-future-improvements)
@@ -22,7 +20,7 @@ An intuitive and responsive full-stack **Expense Tracker** that lets users manag
 
 ---
 
-## 🚀 Features
+## Features
 
 * 🔐 **User Authentication** (JWT-based)
 * 📊 **Dashboard**: Total balance, income, and expenses breakdown
@@ -34,7 +32,7 @@ An intuitive and responsive full-stack **Expense Tracker** that lets users manag
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 **Frontend:**
 
@@ -62,7 +60,7 @@ An intuitive and responsive full-stack **Expense Tracker** that lets users manag
 ---
 ---
 
-## ⚙️ Installation
+## Installation
 
 ```bash
 # Clone the repository
@@ -100,26 +98,26 @@ CLOUDINARY_CLOUD_NAME=your_cloud_name
 * Download Expense/Income Reports
 ---
 
-## 🖼️ Screenshots
+## Screenshots
 
-### ✅ Login Page
+### Login Page
 
 ![Login Screenshot](./screenshots/login.png)
 
-### ✅ Signup Page
+### Signup Page
 
 ![Signup Screenshot](./screenshots/signup.png)
 
-### 📊 Dashboard View
+### Dashboard View
 
 ![Dashboard Screenshot](./screenshots/dashboard.png)
 
-### 🧾 Income Section
+### Income Section
 
 ![Income Screenshot](./screenshots/income1.png)
 ![Income Screenshot](./screenshots/income2.png)
 
-### 🧾 Expense Section
+### Expense Section
 
 ![Expense Screenshot](./screenshots/expense1.png)
 ![Expense Screenshot](./screenshots/expense2.png)
@@ -163,9 +161,8 @@ CLOUDINARY_CLOUD_NAME=your_cloud_name
 ## Author
 
 **Divyang Tomar**
-B.E. Computer Engineering, VGEC
+B.E. Computer Science & Engineering (Data Science), VGEC
 GATE Score: 660 (AIR: 1880)
-CPI: 9+
 [LinkedIn](https://www.linkedin.com/in/divyang-tomar-229bb0284/) | [GitHub](https://github.com/divyang9991)
 
 ---
