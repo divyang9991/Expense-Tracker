@@ -83,7 +83,7 @@ Make sure you have a `.env` file in `server/` and cloudinary if you want to uplo
 MONGO_URI=your_mongo_uri
 JWT_SECRET=your_jwt_secret
 CLOUDINARY_API=your_api
-CLOUDINARY_SECRET-your_secret_for_server
+CLOUDINARY_SECRET=your_secret_for_server
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 ```
 
@@ -167,4 +167,4 @@ GATE Score: 660 (AIR: 1880)
 
 ---
 
-> ⭐ If you found this project helpful or inspiring, feel free to star this repo and connect!
+> If you found this project helpful or inspiring, feel free to star this repo and connect!
