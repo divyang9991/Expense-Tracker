@@ -64,20 +64,20 @@ An intuitive and responsive full-stack **Expense Tracker** that lets users manag
 
 ```bash
 # Clone the repository
-https://github.com/your-username/expense-tracker.git
+https://github.com/divyang9991/expense-tracker.git
 
 # Frontend Setup
-cd client
+cd frontend
 npm install
 npm run dev
 
 # Backend Setup
-cd ../server
+cd ../backend
 npm install
 npm run dev
 ```
 
-Make sure you have a `.env` file in `server/` and cloudinary if you want to upload photos for profile picture:
+Make sure you have a `.env` file in `backend/` and cloudinary if you want to upload photos for profile picture:
 
 ```env
 MONGO_URI=your_mongo_uri
@@ -154,7 +154,7 @@ CLOUDINARY_CLOUD_NAME=your_cloud_name
 * Add dark mode
 * Add recurring expenses feature
 * Mobile app version with React Native
-* Profile upload section 
+* Profile upload section (Partialy completed)
 
 ---
 
