@@ -24,6 +24,8 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hot-toast": "^2.5.2",
+    "react-loading-skeleton": "^3.5.0",
+    "react-plaid-link": "^4.1.1",
     "tailwindcss": "^4.1.11",
     "xlsx": "^0.18.5",
     "zustand": "^5.0.6"

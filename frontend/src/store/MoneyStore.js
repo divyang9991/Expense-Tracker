@@ -13,16 +13,18 @@ const useMoneyStore = create((set, get) => ({
   isGettingSpent: false,
   isGettingEarned: false,
   error: null,
+  loading:true,
   name: "",
 
   getExpense: async () => {
     set({ isGettingExpense: true });
     set({ isGettingSpent: true });
+    set({ loading: true });
     const expenses = await axiosInstance
       .get("/money/expense")
       .then((res) => res.data)
       .catch((err) => {
-        set({ error: err.message, spent: 0 });
+        set({ error: err.message, spent: 0,loading:false });
       });
     if (expenses) {
       const moneySpent = expenses.reduce((sum, item) => sum + item.amount, 0);
@@ -30,20 +32,21 @@ const useMoneyStore = create((set, get) => ({
       set({ spent: moneySpent });
     }
     set({ isGettingSpent: false });
-    set({ isGettingExpense: false });
+    set({ isGettingExpense: false,loading:false });
   },
 
   getIncome: async () => {
     set({ isGettingEarned: true, isGettingIncome: true });
+    set({ loading: true });
     const incomes = await axiosInstance
       .get("/money/income")
       .then((res) => res.data)
       .catch((err) => {
-        set({ error: err.message, earned: 0 });
+        set({ error: err.message, earned: 0 ,loading:false});
       });
     if (incomes) {
       const moneyEarned = incomes.reduce((sum, item) => sum + item.amount, 0);
-      set({ income: incomes, earned: moneyEarned });
+      set({ income: incomes, earned: moneyEarned ,loading:false});
     }
     set({ isGettingEarned: false, isGettingIncome: false });
   },
@@ -63,13 +66,16 @@ const useMoneyStore = create((set, get) => ({
   },
 
   getRecent: async () => {
+    set({loading:true});
     const recent = await axiosInstance
       .get("/money/recent")
       .then((res) => res.data)
       .catch((err) => {
         console.log("error is ", err.message);
+        set({loading:false});
       });
     set({ recent: recent });
+    set({loading:false});
   },
 
   handleIncomeDelete: async (moneyId) => {
@@ -153,6 +159,17 @@ const useMoneyStore = create((set, get) => ({
       toast.error("Error Adding Expense");
     }
   },
+
+  // Add this action inside your store definition
+  refetchFromBank: async () => {
+  const expenses = await axiosInstance.get("/money/expense").then(r => r.data).catch(() => null);
+  const incomes = await axiosInstance.get("/money/income").then(r => r.data).catch(() => null);
+  const recent = await axiosInstance.get("/money/recent").then(r => r.data).catch(() => null);
+
+  if (expenses) set({ expense: expenses, spent: expenses.reduce((s, i) => s + i.amount, 0) });
+  if (incomes) set({ income: incomes, earned: incomes.reduce((s, i) => s + i.amount, 0) });
+  if (recent) set({ recent });
+},
 }));
 
 export default useMoneyStore;

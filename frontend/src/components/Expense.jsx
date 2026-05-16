@@ -1,53 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useMoneyStore from "../store/MoneyStore";
 import BarGraph from "./BarGraph.jsx";
 import MoneyList from "./MoneyList.jsx";
-import { useEffect } from "react";
 import Navbar from "./Navbar.jsx";
 import SideBar from "./SideBar.jsx";
 import { Plus } from "lucide-react";
 import AddMoney from "./AddMoney.jsx";
+import { Skeleton } from "@mui/material";
 
 const Expense = () => {
   const [showAddForm, setShowAddForm] = useState(false);
-  const { expense } = useMoneyStore();
+  const { expense, loading } = useMoneyStore();
   const getExpense = useMoneyStore((state) => state.getExpense);
+
   useEffect(() => {
-    (async () => {
-      await getExpense();
-    })();
-  }, [expense, getExpense]);
+    getExpense();
+  }, []);
 
   return (
     <>
       <Navbar />
       <SideBar />
-      <div>
-        <div className="grid relative grid-cols-1 grid-rows-1 pl-84 pr-4 pt-25 pb-15 gap-y-1.5 bg-gray-100">
-          <div className="col-span-1 pt-10 px-10 bg-white shadow-2xl rounded-xl flex flex-col">
+      <div className="pl-0 lg:pl-80 pr-4 pt-20 pb-15 bg-gray-100 min-h-screen">
+        <div className="grid grid-cols-1 gap-4 px-4 pt-5">
+
+          <div className="col-span-1 pt-6 px-4 sm:px-10 bg-white shadow-2xl rounded-xl flex flex-col">
             <div className="p-2 self-end">
               <button
-                onClick={() => setShowAddForm(!showAddForm)}
-                className="rounded shadow-md bg-white text-red-700 px-6 py-1 border-red-800 border-2 flex flex-row cursor-pointer"
+                onClick={() => setShowAddForm(true)}
+                className="rounded shadow-xl bg-white font-extrabold text-red-500 px-4 py-1 border-red-500 border-2 flex items-center gap-1 cursor-pointer hover:bg-red-50"
               >
-                <Plus className="mr-2" /> Add Expense
+                <Plus size={16} /> Add Expense
               </button>
             </div>
+
             {showAddForm && (
-              <div className="mb-4">
-                <AddMoney title="expense" onSuccess={() => setShowAddForm(false)} />
-              </div>
+              <AddMoney
+                title="expense"
+                onSuccess={() => setShowAddForm(false)}
+                onClose={() => setShowAddForm(false)}
+              />
             )}
-            <BarGraph list={expense} title="Expense" height="300" />
+
+            <div style={{ height: 350 }}>
+              {loading ? (
+                <Skeleton variant="rectangular" width="100%" height="90%" animation="wave" />
+              ) : (
+                <BarGraph list={expense} title="Expense" height="300" />
+              )}
+            </div>
           </div>
-          <div className="col-span-1 p-10 bg-white shadow-2xl rounded-xl">
+
+          <div className="col-span-1 p-4 sm:p-10 bg-white shadow-2xl rounded-xl">
             <MoneyList
               list={expense}
               title="Expense"
               isDelete="true"
               isAddButton="true"
+              loading={loading}
             />
           </div>
+
         </div>
       </div>
     </>

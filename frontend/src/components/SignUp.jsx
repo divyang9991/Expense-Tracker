@@ -151,8 +151,8 @@ const SignUpPage = () => {
           </div>
       </div>
       <AuthImagePattern
-        title="Join our community"
-        subtitle="Connect with friends, share moments, and stay in touch with your loved ones."
+        title="Manage Your Personal Finance"
+        subtitle="Track spending, set budgets, and build savings. your financial freedom starts here."
       />
     </div>
   );

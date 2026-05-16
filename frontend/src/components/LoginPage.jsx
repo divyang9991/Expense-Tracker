@@ -14,7 +14,7 @@ const LogInPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    login(formData);
+    await login(formData);
   };
 
   return (
@@ -110,8 +110,8 @@ const LogInPage = () => {
 
       {/* Right Side - Image/Pattern */}
       <AuthImagePattern
-        title="Join our community"
-        subtitle="Connect with friends, share moments, and stay in touch with your loved ones."
+        title="Manage Your Personal Finance"
+        subtitle="Track spending, set budgets, and build savings. your financial freedom starts here."
       />
     </div>
   );

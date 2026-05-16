@@ -19,6 +19,7 @@ const moneySchema = new mongoose.Schema(
     amount: {
       type: Number,
       required: true,
+      min: [0.0000001, "Amount must be greater than 0"]
     },
     date: {
       type: Date,

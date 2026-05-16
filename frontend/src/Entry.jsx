@@ -11,6 +11,10 @@ import SignUp from './components/SignUp.jsx';
 import LogInPage from './components/LoginPage.jsx';
 import WrongRoute from './WrongRoute.jsx';
 import {Toaster} from 'react-hot-toast'
+import BorrowingHistoryPage from "./components/BorrowingHistoryPage";
+import BorrowingsPage from "./components/BorrowingsPage"
+// import GroupMember from './components/GroupMember.jsx';
+// import GroupDetails from './components/GroupDetails.jsx';
 
 const Entry = () => {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
@@ -33,6 +37,10 @@ const Entry = () => {
         <Route path="/expense" element={authUser?<Expense/>:<Navigate to='/login'/>} />
         <Route path='/signup' element={!authUser?<SignUp/>:<Navigate to='/'/>}/>
         <Route path='/login' element={!authUser?<LogInPage/>:<Navigate to='/'/>}/>
+        <Route path='/borrowings' element={authUser?<BorrowingsPage/>:<Navigate to='/'/>}/>
+        <Route path='/borrowings/history/:email' element={authUser?<BorrowingHistoryPage/>:<Navigate to='/'/>}/>
+        {/* <Route path='/group' element={authUser?<GroupMember/>:<Navigate to='/login'/>}/> */}
+        {/* <Route path='/details/:id' element={authUser?<GroupDetails/>:<Navigate to='/login'/>}/> */}
         <Route path="*" element={<WrongRoute/>} />
       </Routes>
       <Toaster/>
